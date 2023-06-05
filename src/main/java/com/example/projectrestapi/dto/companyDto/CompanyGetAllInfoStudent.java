@@ -17,3 +17,4 @@ public class CompanyGetAllInfoStudent {
     private String phoneNumber;
     private List<String> studentInfo;
 }
+

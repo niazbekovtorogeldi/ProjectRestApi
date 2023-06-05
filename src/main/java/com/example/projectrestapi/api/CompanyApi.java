@@ -44,8 +44,12 @@ public class CompanyApi {
     public CompanyGetAllInformationResponse getAllInformationFromCompanyById(@PathVariable Long companyId){
         return companyService.getAllInformationCompanyById(companyId);
     }
-    @GetMapping("/allStudent/{companyId}")
+    @GetMapping("/allStudentOn/{companyId}")
     public CompanyGetAllInfoStudent getAllInfoStudent(@PathVariable Long companyId){
-        return companyService.getAllStudentInfoOnAndOff(companyId);
+        return companyService.getAllStudentInfoOn(companyId);
+    }
+    @GetMapping("/allStudentOff/{companyId}")
+    public CompanyGetAllInfoStudent getAllInfoStudentOff(@PathVariable Long companyId){
+        return companyService.getAllStudentInfoOff(companyId);
     }
 }

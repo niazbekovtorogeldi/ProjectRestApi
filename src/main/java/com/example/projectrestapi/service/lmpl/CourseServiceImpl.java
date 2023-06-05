@@ -30,7 +30,7 @@ public class CourseServiceImpl implements CourseService {
     public CourseRespons saveCourse(CourseRequest courseRequest, Long companyId,Long courseId) {
         Company company = companyRepository.findById(companyId)
                 .orElseThrow(() -> new NoSuchElementException("Company not found"));
-        Instructor instructor=instructorRepository.getInstructorsById(courseId).orElseThrow(()->new NoSuchElementException("instructor not found"));;
+        Instructor instructor=instructorRepository.getInstructorsById(courseId).orElseThrow(()->new NoSuchElementException("instructor not found"));
         Course course = new Course();
         course.setCourseName(courseRequest.getCourseName());
         course.setDescription(courseRequest.getDescription());

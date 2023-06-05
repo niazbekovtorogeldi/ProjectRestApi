@@ -82,10 +82,18 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public CompanyGetAllInfoStudent getAllStudentInfoOnAndOff(Long id) {
+    public CompanyGetAllInfoStudent getAllStudentInfoOn(Long id) {
         Company company = companyRepository.findById(id).orElseThrow(()-> new NullPointerException(""));
         return CompanyGetAllInfoStudent.builder().name(company.getName()).address(company.getAddress())
                 .studentInfo(companyRepository.studentInfo(id))
+                .build();
+    }
+
+    @Override
+    public CompanyGetAllInfoStudent getAllStudentInfoOff(Long id) {
+        Company company  = companyRepository.findById(id).orElseThrow(()-> new NullPointerException(""));
+        return CompanyGetAllInfoStudent.builder().name(company.getName()).address(company.getAddress())
+                .studentInfo(companyRepository.studentInfoOff(id))
                 .build();
     }
 

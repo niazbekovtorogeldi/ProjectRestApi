@@ -19,5 +19,7 @@ public interface CompanyService {
 
     SimpleRespons deleteCompanyById(Long id);
 
-    CompanyGetAllInfoStudent getAllStudentInfoOnAndOff(Long id);
+    CompanyGetAllInfoStudent getAllStudentInfoOn(Long id);
+    CompanyGetAllInfoStudent getAllStudentInfoOff(Long id);
+
 }

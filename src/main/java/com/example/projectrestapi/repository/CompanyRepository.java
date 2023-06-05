@@ -25,8 +25,12 @@ public interface CompanyRepository extends JpaRepository<Company,Long> {
     List<String> instructorName(@Param("companyId")Long companyId);
     @Query("select count(s.id) from Company c join c.courses cc join cc.groups g join g.students s where c.id=:companyId")
     int studentCount(@Param("companyId") Long companyId);
-    @Query("select s.firstName from Company c join c.courses cc join cc.groups g join g.students s  where  s.studyFormat  ='on' and s.studyFormat='off'  ")
+    @Query("select s.id, s.firstName from Company c join c.courses cc join cc.groups g join g.students s  where  s.studyFormat  ='ONLINE'  ")
     List<String> studentInfo(@Param("companyId") Long companyId);
+
+    @Query("select s.id, s.firstName from Company c join c.courses cc join cc.groups g join g.students s  where  s.studyFormat  ='OFFLINE'  ")
+List<String>studentInfoOff(@Param("companyId")Long companyId);
+
 
 
 
